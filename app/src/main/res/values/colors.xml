@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0097c4</color>
+    <color name="colorPrimaryDark">#00618c</color>
+    <color name="colorAccent">#f6efdf</color>
+    <!--Color Bills!-->
+    <color name="colorPrimaryBill">#CC1616</color>
+    <color name="colorPrimaryDarkBill">#9C1010</color>
+    <color name="colorAccentBill">#F61B1B</color>
+    <!--Color Income!-->
+    <color name="colorPrimaryIncome">#2BD332</color>
+    <color name="colorPrimaryDarkIncome">#229827</color>
+    <color name="colorAccentIncome">#21F429</color>
+</resources>
