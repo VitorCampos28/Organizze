@@ -1,9 +1,12 @@
 package com.example.organize.activity
 
+import android.app.Dialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.organize.R
 import com.example.organize.config.ConfigFirebase
 import com.example.organize.helper.Base64Custom
@@ -16,11 +19,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_bill.*
+import kotlinx.android.synthetic.main.content_main_screen.*
+import java.text.DecimalFormat
 
 class BillActivity : AppCompatActivity() {
     private lateinit var movement: Movement
     private var value = 0.00
-    private lateinit var userInfo:ConfigFirebase
     private var category:String = ""
     private var description:String = ""
     private var date: String = ""
@@ -30,6 +34,7 @@ class BillActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bill)
+        recoveryBill()
         //Auto write the field Data
         dateBill.setText(DateUtil.currentDate())
     }
@@ -42,8 +47,8 @@ class BillActivity : AppCompatActivity() {
             movement.date = date
             movement.type = "D"
             movement.save(date)
-            recoveryBill()
             updateTotalBill(newBill)
+            onCreateDialog().show()
         }
     }
 
@@ -70,20 +75,20 @@ class BillActivity : AppCompatActivity() {
     }
 
     private fun recoveryBill() {
-        var userRef = ConfigFirebase.getUserInfo()
+
+        var dataBaseRef = ConfigFirebase.getUserInfo()
 
         val postListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val post = dataSnapshot.getValue(Users::class.java)
                 totalUserBill = post!!.totalBill
+
             }
         }
-
-        userRef.addValueEventListener(postListener)
+        dataBaseRef.addValueEventListener(postListener)
     }
 
     fun updateTotalBill(bill:Double){
@@ -91,5 +96,19 @@ class BillActivity : AppCompatActivity() {
 
         userRef.child("totalBill").setValue(bill)
     }
-
+     fun onCreateDialog(): Dialog {
+            // Use the Builder class for convenient dialog construction
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("You want leave")
+                .setPositiveButton("Yes",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        finish()
+                    })
+                .setNegativeButton("No",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        // User cancelled the dialog
+                    })
+            // Create the AlertDialog object and return it
+         return builder.create()
+    }
 }

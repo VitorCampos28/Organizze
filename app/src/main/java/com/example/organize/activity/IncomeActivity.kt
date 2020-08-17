@@ -1,9 +1,12 @@
 package com.example.organize.activity
 
+import android.app.Dialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.organize.R
 import com.example.organize.config.ConfigFirebase
 import com.example.organize.helper.Base64Custom
@@ -24,14 +27,13 @@ class IncomeActivity : AppCompatActivity() {
     private var category:String = ""
     private var description:String = ""
     private var date: String = ""
-    private var firebaseRef: DatabaseReference = ConfigFirebase.getFirebaseDatabase()
-    private var autentication: FirebaseAuth = ConfigFirebase.getFirebaseAuthentication()
     private var totalUserIncome:Double = 0.00
     private var newIncome:Double = 0.00
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_income)
-
+        recoveryIncome()
         dateIncome.setText(DateUtil.currentDate())
     }
 
@@ -43,8 +45,8 @@ class IncomeActivity : AppCompatActivity() {
             movement.date = date
             movement.type = "I"
             movement.save(date)
-            recoveryIncome()
             updateTotalIncome(newIncome)
+            onCreateDialog().show()
         }
     }
 
@@ -71,13 +73,10 @@ class IncomeActivity : AppCompatActivity() {
     }
 
     private fun recoveryIncome() {
-        var emailUser = autentication.currentUser!!.email
-        var idUser: String = Base64Custom.crypto64(emailUser)
-        var userRef = firebaseRef.child("Users").child(idUser)
+        var databaseRef = ConfigFirebase.getUserInfo()
 
         val postListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -86,14 +85,28 @@ class IncomeActivity : AppCompatActivity() {
             }
         }
 
-        userRef.addValueEventListener(postListener)
+        databaseRef.addValueEventListener(postListener)
     }
 
     fun updateTotalIncome(income:Double){
-        var emailUser = autentication.currentUser!!.email
-        var idUser: String = Base64Custom.crypto64(emailUser)
-        var userRef = firebaseRef.child("Users").child(idUser)
+        var userRef = ConfigFirebase.getUserInfo()
 
         userRef.child("totalIncome").setValue(income)
+    }
+
+    fun onCreateDialog(): Dialog {
+        // Use the Builder class for convenient dialog construction
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("You want leave")
+            .setPositiveButton("Yes",
+                DialogInterface.OnClickListener { dialog, id ->
+                    finish()
+                })
+            .setNegativeButton("No",
+                DialogInterface.OnClickListener { dialog, id ->
+                    // User cancelled the dialog
+                })
+        // Create the AlertDialog object and return it
+        return builder.create()
     }
 }

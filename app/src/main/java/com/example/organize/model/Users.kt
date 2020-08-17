@@ -12,6 +12,7 @@ class Users {
       var password: String? = null
       @get: Exclude
       var idName: String? = null
+
       var totalIncome:Double = 0.00
       var totalBill:Double = 0.00
 

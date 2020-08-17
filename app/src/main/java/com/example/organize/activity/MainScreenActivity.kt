@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.organize.R
 import com.example.organize.config.ConfigFirebase
+import com.example.organize.helper.Base64Custom
 import com.example.organize.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -24,7 +25,6 @@ import java.text.DecimalFormat
 
 class MainScreenActivity : AppCompatActivity() {
     private lateinit var authentication: FirebaseAuth
-    private var firebaseRef: DatabaseReference = ConfigFirebase.getFirebaseDatabase()
     private var totalUserBill:Double = 0.00
     private var totalUserRecive:Double = 0.00
     private var balanceUser:Double = 0.00
@@ -40,17 +40,16 @@ class MainScreenActivity : AppCompatActivity() {
     }
 
     fun recoveryUserInfo(){
-        val userRef = ConfigFirebase.getUserInfo()
+        var databaseRef = ConfigFirebase.getUserInfo()
 
         val postListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val post = dataSnapshot.getValue(Users::class.java)
-                totalUserBill = post!!.totalBill
-                totalUserRecive = post!!.totalIncome
+                totalUserBill = post!!.totalBill.toDouble()
+                totalUserRecive = post!!.totalIncome.toDouble()
                 balanceUser = totalUserRecive - totalUserBill
 
                 var decimalFormat:DecimalFormat = DecimalFormat("0.##")
@@ -61,7 +60,7 @@ class MainScreenActivity : AppCompatActivity() {
             }
         }
 
-        userRef.addValueEventListener(postListener)
+        databaseRef.addValueEventListener(postListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
