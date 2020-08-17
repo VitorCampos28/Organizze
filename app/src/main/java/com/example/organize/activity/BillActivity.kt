@@ -20,11 +20,10 @@ import kotlinx.android.synthetic.main.activity_bill.*
 class BillActivity : AppCompatActivity() {
     private lateinit var movement: Movement
     private var value = 0.00
+    private lateinit var userInfo:ConfigFirebase
     private var category:String = ""
     private var description:String = ""
     private var date: String = ""
-    private var firebaseRef:DatabaseReference = ConfigFirebase.getFirebaseDatabase()
-    private var autentication:FirebaseAuth = ConfigFirebase.getFirebaseAuthentication()
     private var totalUserBill:Double = 0.00
     private var newBill:Double = 0.00
 
@@ -35,7 +34,7 @@ class BillActivity : AppCompatActivity() {
         dateBill.setText(DateUtil.currentDate())
     }
 
-    fun saveBill(view :View){
+    fun saveBill(){
         if (validFieldBill()) {
             movement.value = value
             movement.category = category
@@ -71,9 +70,7 @@ class BillActivity : AppCompatActivity() {
     }
 
     private fun recoveryBill() {
-        var emailUser = autentication.currentUser!!.email
-        var idUser: String = Base64Custom.crypto64(emailUser)
-        var userRef = firebaseRef.child("Users").child(idUser)
+        val userRef = ConfigFirebase.getUserInfo()
 
         val postListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -90,9 +87,7 @@ class BillActivity : AppCompatActivity() {
     }
 
     fun updateTotalBill(bill:Double){
-        var emailUser = autentication.currentUser!!.email
-        var idUser: String = Base64Custom.crypto64(emailUser)
-        var userRef = firebaseRef.child("Users").child(idUser)
+        val userRef = ConfigFirebase.getUserInfo()
 
         userRef.child("totalBill").setValue(bill)
     }

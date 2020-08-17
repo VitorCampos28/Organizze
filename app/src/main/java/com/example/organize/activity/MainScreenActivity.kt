@@ -12,13 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.organize.R
 import com.example.organize.config.ConfigFirebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.android.synthetic.main.activity_main_screen.*
 import kotlinx.android.synthetic.main.content_main_screen.*
 
 class MainScreenActivity : AppCompatActivity() {
     private lateinit var authentication: FirebaseAuth
-
+    private var firebaseRef: DatabaseReference = ConfigFirebase.getFirebaseDatabase()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
@@ -27,6 +28,8 @@ class MainScreenActivity : AppCompatActivity() {
             Log.i("Date", (date.month + 1).toString() + "/" + date.year)
         }
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -48,12 +51,12 @@ class MainScreenActivity : AppCompatActivity() {
         finish()
     }
 
-    fun bill(view :View){
-        startActivity(Intent(this , BillActivity::class.java ));
+    fun bill(){
+        startActivity(Intent(this , BillActivity::class.java ))
     }
 
-    fun income(view: View){
-        startActivity(Intent(this , IncomeActivity::class.java ));
+    fun income(){
+        startActivity(Intent(this , IncomeActivity::class.java ))
     }
 
 }
