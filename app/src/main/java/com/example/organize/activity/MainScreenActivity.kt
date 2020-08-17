@@ -28,6 +28,8 @@ class MainScreenActivity : AppCompatActivity() {
     private var totalUserBill:Double = 0.00
     private var totalUserRecive:Double = 0.00
     private var balanceUser:Double = 0.00
+    private lateinit var databaseRef:DatabaseReference
+    private lateinit var databaseEventListener:ValueEventListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +38,18 @@ class MainScreenActivity : AppCompatActivity() {
         calendarView.setOnMonthChangedListener { _, date ->
             Log.i("Date", (date.month + 1).toString() + "/" + date.year)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
         recoveryUserInfo()
+        Log.i("Event1" , "Start Event")
     }
 
     fun recoveryUserInfo(){
-        var databaseRef = ConfigFirebase.getUserInfo()
+        databaseRef = ConfigFirebase.getUserInfo()
 
-        val postListener = object : ValueEventListener {
+            databaseEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
 
@@ -60,7 +67,7 @@ class MainScreenActivity : AppCompatActivity() {
             }
         }
 
-        databaseRef.addValueEventListener(postListener)
+        databaseRef.addValueEventListener(databaseEventListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -91,4 +98,9 @@ class MainScreenActivity : AppCompatActivity() {
         startActivity(Intent(this , IncomeActivity::class.java ))
     }
 
+    override fun onStop() {
+        super.onStop()
+        Log.i("Event1" , "Stop Event")
+        databaseRef.removeEventListener(databaseEventListener)
+    }
 }

@@ -19,14 +19,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/BillActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/BillActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/IncomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/IncomeActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/MainScreenActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/organize/activity/MainScreenActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/organize/model/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/organize/model/Users.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597693886921</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Resolved bug recovery Bill and Income">
+      <created>1597699656897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597699656897</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -300,7 +302,8 @@
     <MESSAGE value="Second Commit" />
     <MESSAGE value="New Code getUserInfo" />
     <MESSAGE value="Balance User" />
-    <option name="LAST_COMMIT_MESSAGE" value="Balance User" />
+    <MESSAGE value="Resolved bug recovery Bill and Income" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolved bug recovery Bill and Income" />
   </component>
   <component name="WindowStateProjectService">
     <state x="835" y="145" key="#app" timestamp="1597608033678">
@@ -339,30 +342,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="815" y="285" key="AndroidProcessChooserDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597696855670" />
-    <state x="771" y="102" key="CommitChangelistDialog2" timestamp="1597693886099">
+    <state x="771" y="102" key="CommitChangelistDialog2" timestamp="1597699656170">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="771" y="102" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597693886099" />
+    <state x="771" y="102" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597699656170" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596140957022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1596140957022" />
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom" timestamp="1597699372344">
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom" timestamp="1597700435088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597699372344" />
-    <state width="1877" height="166" key="GridCell.Tab.0.center" timestamp="1597699372344">
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597700435088" />
+    <state width="1877" height="166" key="GridCell.Tab.0.center" timestamp="1597700435088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597699372344" />
-    <state width="1877" height="166" key="GridCell.Tab.0.left" timestamp="1597699372344">
+    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597700435088" />
+    <state width="1877" height="166" key="GridCell.Tab.0.left" timestamp="1597700435088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597699372344" />
-    <state width="1877" height="166" key="GridCell.Tab.0.right" timestamp="1597699372344">
+    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597700435088" />
+    <state width="1877" height="166" key="GridCell.Tab.0.right" timestamp="1597700435088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597699372344" />
+    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1597700435088" />
     <state width="1877" height="517" key="GridCell.Tab.1.bottom" timestamp="1597697931211">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
