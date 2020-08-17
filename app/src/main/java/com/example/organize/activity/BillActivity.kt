@@ -34,7 +34,7 @@ class BillActivity : AppCompatActivity() {
         dateBill.setText(DateUtil.currentDate())
     }
 
-    fun saveBill(){
+    fun saveBill(view: View){
         if (validFieldBill()) {
             movement.value = value
             movement.category = category
@@ -70,7 +70,7 @@ class BillActivity : AppCompatActivity() {
     }
 
     private fun recoveryBill() {
-        val userRef = ConfigFirebase.getUserInfo()
+        var userRef = ConfigFirebase.getUserInfo()
 
         val postListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -87,7 +87,7 @@ class BillActivity : AppCompatActivity() {
     }
 
     fun updateTotalBill(bill:Double){
-        val userRef = ConfigFirebase.getUserInfo()
+        var userRef = ConfigFirebase.getUserInfo()
 
         userRef.child("totalBill").setValue(bill)
     }

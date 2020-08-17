@@ -30,8 +30,7 @@ class ConfigFirebase {
         fun getUserInfo(): DatabaseReference {
             val emailUser = autentication.currentUser!!.email
             val idUser: String = Base64Custom.crypto64(emailUser)
-            val userRef = firebaseRef.child("Users").child(idUser)
-            return userRef
+            return firebaseRef.child("Users").child(idUser)
         }
 
     }
