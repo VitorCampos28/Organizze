@@ -30,10 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="10dp"
-        fab:menu_icon="@drawable/ic_baseline_add_circle_24"
         app:menu_colorNormal="@color/colorAccent"
         app:menu_colorPressed="@color/colorAccent"
-        >
+        fab:menu_icon="@drawable/ic_baseline_add_circle_24">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menuBill"
@@ -57,6 +56,6 @@
             fab:fab_label="Income"
             fab:fab_size="mini" />
 
-</com.github.clans.fab.FloatingActionMenu>
+    </com.github.clans.fab.FloatingActionMenu>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

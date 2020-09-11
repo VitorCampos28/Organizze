@@ -32,6 +32,11 @@ class ConfigFirebase {
             val idUser: String = Base64Custom.crypto64(emailUser)
             return firebaseRef.child("Users").child(idUser)
         }
+        fun getMovesInfo(): DatabaseReference {
+            val emailUser = autentication.currentUser!!.email
+            val idUser: String = Base64Custom.crypto64(emailUser)
+            return firebaseRef.child("Movement").child(idUser)
+        }
 
     }
 
