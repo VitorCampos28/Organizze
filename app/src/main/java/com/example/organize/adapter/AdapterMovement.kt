@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.organize.R
 import com.example.organize.model.Movement
 
-public class AdapterMovement(var movement:List<Movement> , var context: Context) : RecyclerView.Adapter<AdapterMovement.MyViewHolder>() {
+public class AdapterMovement(var movement:MutableList<Movement> , var context: Context) : RecyclerView.Adapter<AdapterMovement.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var itemList:View = LayoutInflater.from(parent.context).inflate(R.layout.activity_adapter_movement,parent ,false)
-        return MyViewHolder(itemList)
+        val view = LayoutInflater.from(context).inflate(R.layout.activity_adapter_movement, parent, false)
+        return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -22,7 +22,7 @@ public class AdapterMovement(var movement:List<Movement> , var context: Context)
         holder.textValue.text = movePosition.value.toString()
         holder.category.text = movePosition.category
 
-        if (movePosition.type == "d" ){
+        if (movePosition.type == "d" || movePosition.type == "D" ){
             holder.textValue.setTextColor(context.resources.getColor(R.color.colorAccentBill))
             holder.textValue.text = "-" + movePosition.value
         }
