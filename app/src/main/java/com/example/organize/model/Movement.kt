@@ -11,7 +11,7 @@ class Movement {
     var description: String = ""
     var type:String = ""
     var value:Double = 0.00
-
+    var key:String = ""
 
     fun save(date:String){
         var authentication = ConfigFirebase.getFirebaseAuthentication()

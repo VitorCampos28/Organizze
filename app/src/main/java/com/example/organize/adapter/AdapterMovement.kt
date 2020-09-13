@@ -25,6 +25,8 @@ public class AdapterMovement(var movement:MutableList<Movement> , var context: C
         if (movePosition.type == "d" || movePosition.type == "D" ){
             holder.textValue.setTextColor(context.resources.getColor(R.color.colorAccentBill))
             holder.textValue.text = "-" + movePosition.value
+        }else{
+            holder.textValue.setTextColor(context.resources.getColor(R.color.colorAccentIncome))
         }
     }
 
